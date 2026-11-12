@@ -3,5 +3,5 @@
 "Differential Expression","0 significant transcript clusters in primary comparison"
 "TAF4","1 significant transcript cluster in SD recovery vs baseline"
 "KEGG GSEA","62 significant pathways out of 310"
-"Ribosome","NES = 2.743; adjusted p = 4.24e-12"
-"Oxidative Phosphorylation","NES = 1.904; adjusted p = 0.000677"
+"Ribosome","NES = 2.743 ; adjusted p = 4.24e-12"
+"Oxidative Phosphorylation","NES = 1.904 ; adjusted p = 0.000677"
