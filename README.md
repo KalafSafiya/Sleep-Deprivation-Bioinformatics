@@ -1,315 +1,234 @@
-# Analysis of Gene Expression Changes During Sleep Deprivation
+# What Happens to the Human Body When We Stay Awake for Too Long?
 
-## 1. About the Project
+## About the Project
 
-**What happens inside the human body when we stay awake for too long?**
+We all know that staying awake for too long can make us feel tired, affect our concentration, and reduce our energy. But have you ever wondered what happens inside our bodies when we do not get enough sleep?
 
-Sleep is important for maintaining normal body functions. When a person stays awake for an extended period, it may affect different biological processes at the molecular level.
+This project explores that question by studying changes in gene activity in human blood samples collected during a sleep study.
 
-This project investigates how **prolonged sleep deprivation affects gene expression in human blood**.
+The aim was to understand how staying awake for a long period may affect the body, what changes can be observed during recovery, and whether there are any interesting patterns in the results.
 
-Gene expression is the process through which information stored in genes is used by cells to produce functional products. By studying changes in gene expression, we can explore how the body responds to sleep deprivation and what changes occur during recovery.
+This project was carried out as a self-learning project to explore bioinformatics and learn how real biological data can be analysed using R.
 
-The project uses publicly available human gene-expression data and bioinformatics techniques to identify changes in individual genes and groups of biologically related genes.
+## Research Question
 
-## 2. Research Question
+**How does staying awake for a long period affect gene activity in the human body, and what changes can be seen after recovery?**
 
-**How does prolonged sleep deprivation affect gene expression in human blood, and how do these changes differ between baseline, sleep deprivation, and recovery periods?**
+## Dataset
 
-## 3. Dataset Used
+For this project, I used a publicly available dataset from the National Center for Biotechnology Information (NCBI).
 
-The project uses the publicly available dataset **GSE98564**, obtained from the NCBI Gene Expression Omnibus (GEO).
-
-| Dataset Information | Details |
+| Detail | Description |
 |---|---|
-| GEO Accession | GSE98564 |
-| Organism | Human |
-| Biological Sample | Blood |
-| Technology | Affymetrix Human Gene 1.0 ST Microarray |
-| Participants | 17 |
-| Control Participants | 6 |
-| Sleep-Deprived Participants | 11 |
-| Total Samples | 199 |
-| Transcript Clusters | 8,454 |
+| Dataset ID | GSE98564 |
+| Species | Human |
+| Sample type | Blood |
+| Number of participants | 17 |
+| Control group | 6 participants |
+| Sleep-deprived group | 11 participants |
+| Total blood samples | 199 |
+| Gene activity measurements | 8,454 |
 
-The dataset contains samples collected during three study phases:
+The samples were collected during three main stages:
 
-- **Baseline:** Measurements before the experimental sleep-deprivation period.
-- **Experimental:** Measurements during the experimental period.
-- **Recovery:** Measurements during the recovery period.
+1. **Baseline:** Measurements taken before the sleep deprivation period.
+2. **Experimental:** Measurements taken during the study period when participants in the sleep-deprived group stayed awake.
+3. **Recovery:** Measurements taken after the recovery period.
 
-The dataset includes repeated measurements from participants across the study phases.
+The study also included a control group. This allowed me to compare the changes in the sleep-deprived group with changes observed in participants who were not sleep-deprived.
 
-The expression data used in the analysis were already processed using the RMA (Robust Multi-array Average) normalization method. Therefore, the analysis used the processed GEO expression data rather than applying normalization again.
+**Dataset source:** [GSE98564 – NCBI GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98564)
 
-**Dataset:** [GSE98564 – NCBI GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98564)
+## Methods Used
 
-## 4. Tools and Technologies
+The project was carried out using R and RStudio. The following methods were used to explore and understand the data.
 
-The following tools and packages were used:
+### 1. Data Preparation
 
-| Tool / Package | Purpose |
+The dataset was collected from the NCBI GEO database and loaded into R.
+
+I organised the information about the participants, their groups, and the different stages of the study. I also checked the data to make sure it was suitable for analysis.
+
+### 2. Exploratory Data Analysis (EDA)
+
+I explored the dataset to understand the number of samples, participant groups, and differences in gene activity.
+
+I also used graphs to get an initial understanding of the data and identify general patterns.
+
+### 3. Differential Expression Analysis
+
+I compared gene activity between the different stages of the study.
+
+I also compared the sleep-deprived group with the control group to identify changes that were more closely related to sleep deprivation.
+
+The **limma** package in R was used to perform these comparisons and identify statistically meaningful changes.
+
+### 4. Principal Component Analysis (PCA)
+
+PCA was used to simplify the large amount of gene activity data into a visual representation.
+
+This helped me explore whether samples had similar or different gene activity patterns.
+
+### 5. Hierarchical Clustering
+
+This method was used to group samples based on similarities in their gene activity.
+
+A heatmap was created to make these patterns easier to see.
+
+### 6. Gene Set Enrichment Analysis (GSEA)
+
+Instead of examining genes one by one, I also studied groups of genes that are involved in related activities.
+
+This helped identify broader patterns that might not be obvious when looking at individual genes.
+
+I used this method to explore changes in areas such as protein production and energy-related processes.
+
+### Tools and Technologies
+
+- **R and RStudio:** Used to perform the analysis.
+- **GEOquery:** Used to retrieve the dataset.
+- **limma:** Used to compare gene activity.
+- **ggplot2:** Used to create graphs.
+- **pheatmap:** Used to create heatmaps.
+- **clusterProfiler:** Used to study groups of related genes.
+- **AnnotationDbi and org.Hs.eg.db:** Used to identify and organise gene information.
+- **Git and GitHub:** Used to manage and share the project.
+
+## What I Did
+
+The main activities completed during this project were:
+
+- Collected and prepared the publicly available dataset.
+- Organised participant and sample information.
+- Explored the data using summary statistics and visualisations.
+- Compared gene activity across the different study stages.
+- Compared changes between the sleep-deprived and control groups.
+- Investigated the TAF4 gene, which showed a significant change in one comparison.
+- Used PCA to explore similarities and differences between samples.
+- Used hierarchical clustering and heatmaps to identify patterns.
+- Studied groups of related genes to find broader patterns.
+- Created graphs and saved the analysis results.
+
+## Results and Visualisations
+
+The analysis produced several graphs that helped me understand the patterns in the dataset.
+
+### 1. Overall Sample Patterns – PCA
+
+![PCA Plot](figures/PCA_of_Gene_Expression_Profiles.jpeg)
+
+This graph gives an overview of how the samples are related based on their gene activity. Samples with similar patterns may appear closer together.
+
+[View PCA Plot](figures/PCA_of_Gene_Expression_Profiles.jpeg)
+
+### 2. Gene Activity Patterns – Heatmap
+
+![Heatmap](figures/Heatmap_Top_30_Variable_Clusters.png)
+
+This heatmap shows the activity patterns of 30 selected gene clusters across the samples. It helps identify similarities and differences in the data.
+
+[View Heatmap](figures/Heatmap_Top_30_Variable_Clusters.png)
+
+### 3. Changes in TAF4
+
+![TAF4 Expression](figures/TAF4_Expression_Across_Study_Phases.jpeg)
+
+TAF4 was one of the genes that showed a statistically significant change when comparing recovery with baseline in the sleep-deprived group.
+
+Its measured activity was approximately 14% lower during recovery. However, this change was not shown to be specific to sleep deprivation when compared with the control group.
+
+[View TAF4 Graph](figures/TAF4_Expression_Across_Study_Phases.jpeg)
+
+### 4. Groups of Related Genes – GSEA
+
+![KEGG GSEA Dotplot](figures/KEGG_GSEA_Dotplot.png)
+
+This graph shows groups of genes that displayed interesting patterns in the main comparison between the sleep-deprived and control groups.
+
+Out of 310 groups examined, 62 showed statistically significant patterns.
+
+[View GSEA Dotplot](figures/KEGG_GSEA_Dotplot.png)
+
+### 5. Ribosome-Related Gene Patterns
+
+![Ribosome Enrichment](figures/GSEA_Ribosome_Enrichment.png)
+
+A strong pattern was found among genes related to ribosomes, which help cells produce proteins. This was one of the most noticeable findings in the analysis.
+
+[View Ribosome Enrichment Plot](figures/GSEA_Ribosome_Enrichment.png)
+
+## Summary of Results
+
+| Analysis | Main Result |
 |---|---|
-| R | Main programming language for the analysis |
-| RStudio | Environment used to write and execute R scripts |
-| GEOquery | Retrieve the gene-expression dataset from GEO |
-| limma | Perform differential gene-expression analysis |
-| AnnotationDbi | Map transcript identifiers to gene information |
-| hugene10sttranscriptcluster.db | Annotate transcript clusters |
-| org.Hs.eg.db | Obtain human gene annotations |
-| clusterProfiler | Perform Gene Set Enrichment Analysis |
-| enrichplot | Visualize pathway enrichment results |
-| ggplot2 | Create data visualizations |
-| pheatmap | Generate the gene-expression heatmap |
-| Git and GitHub | Manage and store project files and analysis code |
+| Individual gene comparison | No statistically significant individual gene changes in the main comparison |
+| TAF4 | Approximately 14% lower measured activity during recovery compared with baseline in the sleep-deprived group |
+| Gene group analysis | 62 out of 310 groups showed statistically significant patterns |
+| Ribosome-related genes | Strong positive pattern |
+| Energy-related genes | Noticeable positive pattern |
 
-## 5. What Was Done?
+## Conclusion
 
-The project was completed through several stages.
+The analysis did not identify individual genes with statistically significant changes in the main comparison between the sleep-deprived and control groups.
 
-### 5.1 Data Collection and Preparation
+However, when genes were studied in groups, interesting patterns appeared in areas related to protein production and energy-related processes.
 
-- Retrieved the GSE98564 dataset from NCBI GEO.
-- Imported the processed gene-expression matrix and sample information into R.
-- Prepared sample metadata, including participant IDs, group information, and study phases.
-- Checked the consistency between expression data and sample metadata.
-- Examined missing values and expression-value distributions.
+I also found a change in the TAF4 gene during the recovery stage, although this change was not shown to be specific to sleep deprivation when compared with the control group.
 
-### 5.2 Exploratory Data Analysis (EDA)
+Overall, the findings suggest that studying groups of related genes can reveal patterns that may not be visible when examining individual genes alone.
 
-Exploratory Data Analysis was performed to understand the structure and characteristics of the dataset.
+In simple terms, **the project helped explore how prolonged sleep deprivation may be associated with changes in different activities happening inside our cells.**
 
-This included:
+## Limitations
 
-- Checking the number of samples and transcript clusters.
-- Examining the distribution of gene-expression values.
-- Checking missing values.
-- Examining the number of participants in each group and study phase.
+There are a few limitations to this project:
 
-### 5.3 Differential Gene Expression Analysis
+- The study included only 17 participants.
+- The analysis used blood samples, so the findings do not directly explain what happens in the brain or every other part of the body.
+- The main comparison did not identify statistically significant changes in individual genes.
+- The results show patterns in gene activity, not direct measurements of protein production or energy levels.
 
-Differential expression analysis was performed using the `limma` package.
+Therefore, the findings should be interpreted carefully and cannot represent every effect of sleep deprivation on the entire human body.
 
-The purpose was to identify transcript clusters whose expression levels differed between study phases.
-
-The analysis included six comparisons:
-
-1. Sleep-deprived group: Experimental vs Baseline.
-2. Sleep-deprived group: Recovery vs Experimental.
-3. Sleep-deprived group: Recovery vs Baseline.
-4. Control group: Experimental vs Baseline.
-5. Experimental difference: Sleep-deprived group compared with the control group.
-6. Recovery difference: Sleep-deprived group compared with the control group.
-
-Repeated measurements from the same participants were accounted for using `duplicateCorrelation` and a participant-level blocking structure.
-
-Multiple testing was addressed using the Benjamini-Hochberg (BH) adjustment method.
-
-### 5.4 Gene Annotation and TAF4 Analysis
-
-The significant transcript cluster identified in the sleep-deprived group's Recovery vs Baseline comparison was further investigated.
-
-The transcript cluster was mapped to its corresponding gene using annotation databases.
-
-The identified gene was:
-
-**TAF4 – TATA-box binding protein associated factor 4**
-
-Its expression levels were examined across the different study phases and groups.
-
-### 5.5 Principal Component Analysis (PCA)
-
-Principal Component Analysis was performed to explore patterns and similarities in gene-expression profiles.
-
-The analysis used the 500 most variable transcript clusters.
-
-A PCA plot was generated to visualize the samples based on their expression profiles.
-
-### 5.6 Hierarchical Clustering and Heatmap
-
-Hierarchical clustering was used to explore similarities between gene-expression patterns.
-
-A heatmap was generated using the 30 most variable transcript clusters.
-
-The heatmap helps visualize expression patterns across samples and study groups.
-
-### 5.7 Gene Set Enrichment Analysis (GSEA)
-
-Gene Set Enrichment Analysis was performed using the `clusterProfiler` package.
-
-Unlike individual gene analysis, GSEA examines groups of related genes to identify biological pathways that show coordinated expression patterns.
-
-The analysis used:
-
-- Ranked genes based on moderated t-statistics.
-- KEGG biological pathway information.
-- Human organism identifier (`hsa`).
-- Benjamini-Hochberg multiple-testing correction.
-
-The analysis identified significantly enriched pathways using an adjusted p-value threshold of 0.05.
-
-### 5.8 Investigation of Important Biological Pathways
-
-Two enriched pathways were investigated in greater detail.
-
-#### Ribosome Pathway
-
-The Ribosome pathway is associated with the cellular machinery responsible for protein synthesis.
-
-The analysis included:
-
-- Identifying the leading-edge genes contributing to pathway enrichment.
-- Mapping gene identifiers to gene symbols and names.
-- Extracting gene-expression statistics.
-- Examining the direction of the moderated t-statistics.
-- Generating a pathway enrichment plot.
-
-#### Oxidative Phosphorylation Pathway
-
-Oxidative phosphorylation is a biological process involved in cellular energy production within mitochondria.
-
-The analysis included:
-
-- Identifying leading-edge genes.
-- Annotating the genes using human gene databases.
-- Extracting their expression statistics.
-- Examining the direction of their moderated t-statistics.
-
-## 6. Key Findings
-
-The following are the main findings obtained from the analysis.
-
-| Analysis | Main Finding |
-|---|---|
-| Dataset | 199 blood samples from 17 participants |
-| Differential Expression | No individually significant transcript clusters in the primary comparison |
-| TAF4 | One significant transcript cluster in the sleep-deprived group's Recovery vs Baseline comparison |
-| KEGG GSEA | 62 significantly enriched pathways out of 310 |
-| Ribosome | NES = 2.743; adjusted p-value = 4.24 × 10⁻¹² |
-| Oxidative Phosphorylation | NES = 1.904; adjusted p-value = 0.000677 |
-
-### Important Observations
-
-**1. Individual Gene Analysis**
-
-The primary comparison identified no transcript clusters that remained statistically significant after multiple-testing correction.
-
-**2. TAF4**
-
-One significant transcript cluster corresponding to TAF4 was identified in the sleep-deprived group's Recovery vs Baseline comparison.
-
-Its estimated expression was approximately 14.3% lower during recovery compared with baseline.
-
-However, this difference was not statistically significant when comparing the change in the sleep-deprived group against the change in the control group. Therefore, it cannot be concluded that this change was specifically caused by sleep deprivation.
-
-**3. Ribosome Pathway**
-
-The Ribosome pathway showed strong positive enrichment.
-
-Its 71 leading-edge genes all had positive moderated t-statistics in the primary comparison.
-
-**4. Oxidative Phosphorylation Pathway**
-
-The Oxidative Phosphorylation pathway also showed positive enrichment.
-
-Its 51 leading-edge genes all had positive moderated t-statistics in the primary comparison.
-
-Positive enrichment indicates that these pathway genes tend to appear toward the positive end of the ranked gene list. It does not directly prove increased protein production, ATP production, or mitochondrial activity.
-
-## 7. Visualizations
-
-The project generated several visualizations to help understand the data and results.
-
-| Visualization | Purpose |
-|---|---|
-| PCA Plot | Explores similarities and differences between samples |
-| Heatmap | Displays expression patterns of the 30 most variable transcript clusters |
-| TAF4 Expression Plot | Compares TAF4 expression across groups and study phases |
-| Volcano Plot | Visualizes differential expression results |
-| KEGG GSEA Dot Plot | Displays enriched biological pathways |
-| Ribosome Enrichment Plot | Shows the enrichment pattern of the Ribosome pathway |
-
-All generated figures are available in the `figures/` directory.
-
-## 8. Project Structure
+## Project Structure
 
 ```text
 Sleep_Deprivation_Bioinformatics/
 │
 ├── data/
-│   ├── Differential expression results
-│   ├── Gene annotation files
-│   ├── GSEA results
-│   ├── Leading-edge gene information
-│   ├── Gene-expression statistics
-│   └── Final_Results_Summary.csv
+│   └── Analysis results and summary files
 │
 ├── figures/
-│   ├── PCA plots
-│   ├── Heatmaps
-│   ├── Volcano plots
-│   ├── TAF4 expression plot
-│   └── GSEA enrichment plots
+│   ├── PCA_of_Gene_Expression_Profiles.jpeg
+│   ├── Heatmap_Top_30_Variable_Clusters.png
+│   ├── TAF4_Expression_Across_Study_Phases.jpeg
+│   ├── KEGG_GSEA_Dotplot.png
+│   └── GSEA_Ribosome_Enrichment.png
 │
 ├── code/
 │   └── analysis_history.Rhistory
 │
 ├── Sleep_Deprivation_Analysis.R
-├── Sleep_Deprivation_Bioinformatics.Rproj
-└── .gitignore
+├── README.md
+└── Sleep_Deprivation_Bioinformatics.Rproj
 ```
 
-**Note:** The original raw CEL files are kept locally and excluded from GitHub because of their size. The processed expression data are retrieved from GEO by the analysis script.
+The original raw data files are not included in this GitHub repository.
 
-## 9. How to Run the Project
-
-### Requirements
-
-- R
-- RStudio
-- Internet connection to retrieve the GEO dataset
-- Required R and Bioconductor packages
-
-### Steps
+## How to Run the Project
 
 1. Clone or download this repository.
-2. Open `Sleep_Deprivation_Bioinformatics.Rproj` in RStudio.
+2. Open the project using RStudio.
 3. Open `Sleep_Deprivation_Analysis.R`.
-4. Install any required packages if they are not already installed.
-5. Run the script from beginning to end using the **Source** button.
-6. Check the generated CSV files in the `data/` directory.
-7. Check the generated plots in the `figures/` directory.
+4. Make sure the required R packages are installed.
+5. Run the script to perform the analysis.
 
-The script performs the analysis and saves the results into the project folders.
+The script retrieves the dataset from NCBI GEO, processes the information, performs the comparisons, and generates the results and visualisations.
 
-## 10. Limitations
+## Project Repository
 
-Some limitations should be considered when interpreting the findings:
+[View the project on GitHub](https://github.com/KalafSafiya/Sleep-Deprivation-Bioinformatics)
 
-- The study includes only 17 participants, which is a relatively small sample size.
-- The analysis uses blood samples, so the findings should not be interpreted as direct measurements of gene expression in the brain or every organ in the body.
-- Microarray data measure transcript-level expression and do not directly measure protein production or biological activity.
-- No individually significant transcript clusters were identified in the primary comparison after multiple-testing correction.
-- Pathway enrichment does not necessarily mean that a biological process is directly activated or suppressed.
-- The study's results cannot establish that the observed changes were caused solely by sleep deprivation.
+---
 
-## 11. Conclusion
-
-This project explored the effects of prolonged sleep deprivation on human blood gene-expression patterns using bioinformatics techniques.
-
-Although the primary differential expression analysis did not identify individually significant transcript clusters after multiple-testing correction, Gene Set Enrichment Analysis identified 62 significantly enriched KEGG pathways.
-
-The Ribosome and Oxidative Phosphorylation pathways showed particularly strong positive enrichment, suggesting coordinated expression patterns among genes associated with these biological processes.
-
-Overall, the project demonstrates how publicly available biological datasets, statistical analysis, gene annotation, and pathway enrichment techniques can be combined to investigate molecular changes associated with sleep deprivation.
-
-## 12. Repository
-
-**GitHub:** [Sleep-Deprivation-Bioinformatics](https://github.com/KalafSafiya/Sleep-Deprivation-Bioinformatics)
-
-| Project Detail | Information |
-|---|---|
-| Project Type | Bioinformatics / Gene Expression Analysis |
-| Dataset | GSE98564 – NCBI Gene Expression Omnibus |
-| Main Language | R |
-| Status | Data analysis and visualization completed; report preparation and further learning in progress |
+*This project was completed as a self-learning project to explore bioinformatics, gene activity, and the use of R for analysing real biological data.*
