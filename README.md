@@ -137,7 +137,7 @@ This graph provides an overview of the changes observed when comparing the sleep
 
 Although some genes showed interesting differences, the main comparison did not identify individual genes with statistically significant changes after accounting for multiple comparisons.
 
-[View Volcano Plot](figures/Volcano%20Plot%20Sleep%20Deprivation%20vs%20Control.png)
+
 
 ### 4. Changes in TAF4
 
@@ -147,7 +147,7 @@ TAF4 was one of the genes that showed a statistically significant change when co
 
 Its measured activity was approximately 14% lower during recovery. However, this change was not shown to be specific to sleep deprivation when compared with the control group.
 
-[View TAF4 Graph](figures/TAF4%20Expression%20Across%20Study%20Phases.jpeg)
+
 
 ### 5. Groups of Related Genes – GSEA
 
@@ -157,7 +157,6 @@ This graph shows groups of genes that displayed interesting patterns in the main
 
 Out of 310 groups examined, 62 showed statistically significant patterns.
 
-[View GSEA Dotplot](figures/KEGG%20Gene%20Set%20Enrichment%20Analysis.jpeg)
 
 ### 6. Ribosome-Related Gene Patterns
 
@@ -165,7 +164,7 @@ Out of 310 groups examined, 62 showed statistically significant patterns.
 
 A strong pattern was found among genes related to ribosomes, which help cells produce proteins. This was one of the most noticeable findings in the analysis.
 
-[View Ribosome Enrichment Plot](figures/GSEA%20Enrichment%20Plot_Ribosome.jpeg)
+
 
 ## Summary of Results
 
@@ -238,8 +237,8 @@ The script retrieves the dataset from NCBI GEO, processes the information, perfo
 
 ## Project Repository
 
-[View the project on GitHub](https://github.com/KalafSafiya/Sleep-Deprivation-Bioinformatics)
+**GitHub:** [Sleep-Deprivation-Bioinformatics](https://github.com/KalafSafiya/Sleep-Deprivation-Bioinformatics)
 
 ---
 
-*This project was completed as a self-learning project to explore bioinformatics, gene activity, and the use of R for analysing real biological data.*
+*This project was completed as a self-learning project to fulfill the In Course Assessment 02 in IT4133(T) Bioinformatics and Computational Biology*
