@@ -111,51 +111,61 @@ The main activities completed during this project were:
 
 ## Results and Visualisations
 
-The analysis produced several graphs that helped me understand the patterns in the dataset.
+The following graphs show some of the main results from the analysis. Each graph helps explain a different part of the work.
 
 ### 1. Overall Sample Patterns – PCA
 
-![PCA Plot](figures/PCA_of_Gene_Expression_Profiles.jpeg)
+![PCA Plot](figures/PCA%20of%20Gene%20Expression%20Profiles.jpeg)
 
 This graph gives an overview of how the samples are related based on their gene activity. Samples with similar patterns may appear closer together.
 
-[View PCA Plot](figures/PCA_of_Gene_Expression_Profiles.jpeg)
+[View PCA Plot](figures/PCA%20of%20Gene%20Expression%20Profiles.jpeg)
 
 ### 2. Gene Activity Patterns – Heatmap
 
-![Heatmap](figures/Heatmap_Top_30_Variable_Clusters.png)
+![Heatmap](figures/Heatmap%20of%20Top%2030%20Variable%20Transcript%20Clusters.jpeg)
 
 This heatmap shows the activity patterns of 30 selected gene clusters across the samples. It helps identify similarities and differences in the data.
 
-[View Heatmap](figures/Heatmap_Top_30_Variable_Clusters.png)
+[View Heatmap](figures/Heatmap%20of%20Top%2030%20Variable%20Transcript%20Clusters.jpeg)
 
-### 3. Changes in TAF4
+### 3. Individual Gene Changes – Volcano Plot
 
-![TAF4 Expression](figures/TAF4_Expression_Across_Study_Phases.jpeg)
+![Volcano Plot](figures/Volcano%20Plot%20Sleep%20Deprivation%20vs%20Control.png)
+
+This graph provides an overview of the changes observed when comparing the sleep-deprived group with the control group. It shows both the size of the changes and how statistically strong the results are.
+
+Although some genes showed interesting differences, the main comparison did not identify individual genes with statistically significant changes after accounting for multiple comparisons.
+
+[View Volcano Plot](figures/Volcano%20Plot%20Sleep%20Deprivation%20vs%20Control.png)
+
+### 4. Changes in TAF4
+
+![TAF4 Expression](figures/TAF4%20Expression%20Across%20Study%20Phases.jpeg)
 
 TAF4 was one of the genes that showed a statistically significant change when comparing recovery with baseline in the sleep-deprived group.
 
 Its measured activity was approximately 14% lower during recovery. However, this change was not shown to be specific to sleep deprivation when compared with the control group.
 
-[View TAF4 Graph](figures/TAF4_Expression_Across_Study_Phases.jpeg)
+[View TAF4 Graph](figures/TAF4%20Expression%20Across%20Study%20Phases.jpeg)
 
-### 4. Groups of Related Genes – GSEA
+### 5. Groups of Related Genes – GSEA
 
-![KEGG GSEA Dotplot](figures/KEGG_GSEA_Dotplot.png)
+![KEGG GSEA Dotplot](figures/KEGG%20Gene%20Set%20Enrichment%20Analysis.jpeg)
 
 This graph shows groups of genes that displayed interesting patterns in the main comparison between the sleep-deprived and control groups.
 
 Out of 310 groups examined, 62 showed statistically significant patterns.
 
-[View GSEA Dotplot](figures/KEGG_GSEA_Dotplot.png)
+[View GSEA Dotplot](figures/KEGG%20Gene%20Set%20Enrichment%20Analysis.jpeg)
 
-### 5. Ribosome-Related Gene Patterns
+### 6. Ribosome-Related Gene Patterns
 
-![Ribosome Enrichment](figures/GSEA_Ribosome_Enrichment.png)
+![Ribosome Enrichment](figures/GSEA%20Enrichment%20Plot_Ribosome.jpeg)
 
 A strong pattern was found among genes related to ribosomes, which help cells produce proteins. This was one of the most noticeable findings in the analysis.
 
-[View Ribosome Enrichment Plot](figures/GSEA_Ribosome_Enrichment.png)
+[View Ribosome Enrichment Plot](figures/GSEA%20Enrichment%20Plot_Ribosome.jpeg)
 
 ## Summary of Results
 
@@ -199,11 +209,12 @@ Sleep_Deprivation_Bioinformatics/
 │   └── Analysis results and summary files
 │
 ├── figures/
-│   ├── PCA_of_Gene_Expression_Profiles.jpeg
-│   ├── Heatmap_Top_30_Variable_Clusters.png
-│   ├── TAF4_Expression_Across_Study_Phases.jpeg
-│   ├── KEGG_GSEA_Dotplot.png
-│   └── GSEA_Ribosome_Enrichment.png
+│   ├── GSEA Enrichment Plot_Ribosome.jpeg
+│   ├── Heatmap of Top 30 Variable Transcript Clusters.jpeg
+│   ├── KEGG Gene Set Enrichment Analysis.jpeg
+│   ├── PCA of Gene Expression Profiles.jpeg
+│   ├── TAF4 Expression Across Study Phases.jpeg
+│   └── Volcano Plot Sleep Deprivation vs Control.png
 │
 ├── code/
 │   └── analysis_history.Rhistory
