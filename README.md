@@ -119,15 +119,12 @@ The following graphs show some of the main results from the analysis. Each graph
 
 This graph gives an overview of how the samples are related based on their gene activity. Samples with similar patterns may appear closer together.
 
-[View PCA Plot](figures/PCA%20of%20Gene%20Expression%20Profiles.jpeg)
 
 ### 2. Gene Activity Patterns – Heatmap
 
 ![Heatmap](figures/Heatmap%20of%20Top%2030%20Variable%20Transcript%20Clusters.jpeg)
 
 This heatmap shows the activity patterns of 30 selected gene clusters across the samples. It helps identify similarities and differences in the data.
-
-[View Heatmap](figures/Heatmap%20of%20Top%2030%20Variable%20Transcript%20Clusters.jpeg)
 
 ### 3. Individual Gene Changes – Volcano Plot
 
