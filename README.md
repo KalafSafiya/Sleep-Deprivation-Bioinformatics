@@ -222,19 +222,86 @@ Sleep_Deprivation_Bioinformatics/
 
 The original raw data files are not included in this GitHub repository.
 
-## How to Run the Project
 
-1. Clone or download this repository.
-2. Open the project using RStudio.
-3. Open `Sleep_Deprivation_Analysis.R`.
-4. Make sure the required R packages are installed.
-5. Run the script to perform the analysis.
+## Installation and Running the Project
+
+### 1. Clone the Repository
+
+Open Git Bash or a terminal and run:
+
+```bash
+git clone https://github.com/KalafSafiya/Sleep-Deprivation-Bioinformatics.git
+cd Sleep-Deprivation-Bioinformatics
+```
+
+### 2. Open the Project
+
+Open `Sleep_Deprivation_Bioinformatics.Rproj` using RStudio.
+
+### 3. Install Required Packages
+
+Run the following commands in the RStudio Console. You only need to install these packages once.
+
+**Install CRAN packages:**
+
+```r
+install.packages("BiocManager")
+install.packages(c("ggplot2", "pheatmap"))
+```
+
+**Install Bioconductor packages:**
+
+```r
+BiocManager::install(c(
+  "GEOquery",
+  "limma",
+  "AnnotationDbi",
+  "hugene10sttranscriptcluster.db",
+  "org.Hs.eg.db",
+  "clusterProfiler",
+  "enrichplot"
+))
+```
+
+### 4. Run the Analysis
+
+1. Open `Sleep_Deprivation_Analysis.R` in RStudio.
+2. Click the **Source** button to execute the complete script.
+3. The script retrieves the GSE98564 dataset directly from NCBI GEO using the `GEOquery` package.
+4. Analysis results and visualizations are saved in the respective `data/` and `figures/` folders.
 
 The script retrieves the dataset from NCBI GEO, processes the information, performs the comparisons, and generates the results and visualisations.
 
 ## Project Repository
 
 **GitHub:** [Sleep-Deprivation-Bioinformatics](https://github.com/KalafSafiya/Sleep-Deprivation-Bioinformatics)
+
+
+## References
+
+1. **NCBI Gene Expression Omnibus (GEO) – GSE98564**  
+   Dataset: *Gene expression biomarkers for neurobehavioral impairment from total sleep deprivation microarray data.*  
+   https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE98564
+
+2. **GEOquery – Bioconductor**  
+   Used to retrieve gene expression datasets from NCBI GEO.  
+   https://bioconductor.org/packages/GEOquery/
+
+3. **limma – Bioconductor**  
+   Used for differential gene expression analysis.  
+   https://bioconductor.org/packages/limma/
+
+4. **clusterProfiler – Bioconductor**  
+   Used for gene set enrichment analysis and functional interpretation.  
+   https://bioconductor.org/packages/clusterProfiler/
+
+5. **Bioconductor**  
+   Package management and documentation for bioinformatics tools used in this project.  
+   https://www.bioconductor.org/
+
+6. **R Project for Statistical Computing**  
+   Programming environment used to perform the analysis.  
+   https://www.r-project.org/
 
 ---
 
